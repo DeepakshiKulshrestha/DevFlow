@@ -5,6 +5,7 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import { connectDB } from "./config/database";
 import authRoutes from "./routes/auth.routes";
+import userRoutes from "./routes/user.routes";
 
 dotenv.config();
 
@@ -22,7 +23,10 @@ app.use(
     "/api/auth",
     authRoutes
 );
-
+app.use(
+    "/api/user",
+    userRoutes
+);
 
 // Test Route
 app.get("/health", (req, res) => {
