@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import { connectDB } from "./config/database";
 import authRoutes from "./routes/auth.routes";
 import userRoutes from "./routes/user.routes";
+import workspaceRoutes from "./routes/workspace.routes";
 
 dotenv.config();
 
@@ -19,14 +20,9 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet());
 app.use(cookieParser());
-app.use(
-    "/api/auth",
-    authRoutes
-);
-app.use(
-    "/api/user",
-    userRoutes
-);
+app.use("/api/auth",authRoutes);
+app.use("/api/user",userRoutes);
+app.use("/api/workspaces",workspaceRoutes);
 
 // Test Route
 app.get("/health", (req, res) => {
