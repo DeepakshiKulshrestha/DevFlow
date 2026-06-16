@@ -7,6 +7,7 @@ import { connectDB } from "./config/database";
 import authRoutes from "./routes/auth.routes";
 import userRoutes from "./routes/user.routes";
 import workspaceRoutes from "./routes/workspace.routes";
+import projectRoutes from "./routes/project.routes";
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.use(cookieParser());
 app.use("/api/auth",authRoutes);
 app.use("/api/user",userRoutes);
 app.use("/api/workspaces",workspaceRoutes);
+app.use( "/api/projects", projectRoutes);
 
 // Test Route
 app.get("/health", (req, res) => {
