@@ -8,6 +8,7 @@ import authRoutes from "./routes/auth.routes";
 import userRoutes from "./routes/user.routes";
 import workspaceRoutes from "./routes/workspace.routes";
 import projectRoutes from "./routes/project.routes";
+import issueRoutes from "./routes/issue.routes";
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.use("/api/auth",authRoutes);
 app.use("/api/user",userRoutes);
 app.use("/api/workspaces",workspaceRoutes);
 app.use( "/api/projects", projectRoutes);
+app.use("/api/issues",issueRoutes);
 
 // Test Route
 app.get("/health", (req, res) => {
