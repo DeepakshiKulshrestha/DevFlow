@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 
 import Issue from "../models/Issue";
 import Project from "../models/Project";
+import { createActivity } from "../services/activity.service";
 
 
 
@@ -72,6 +73,19 @@ export const createIssue = async (
                 createdBy: userId
 
             });
+            await createActivity({
+
+    action:"ISSUE_CREATED",
+
+    message:`Issue created: ${title}`,
+
+    user:userId,
+
+    project: project._id as mongoose.Types.ObjectId,
+
+    issue: issue._id as mongoose.Types.ObjectId
+
+});
 
 
 
